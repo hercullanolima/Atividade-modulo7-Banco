@@ -1,25 +1,28 @@
-public class ContaCorrente extends Conta implements Tributavel {
-    private double chequeEspecial;
+public class ContaCorrente extends Conta implements Tributavel{
+    private int chequeEspecial;
 
-    public ContaCorrente(String numero, int agencia, String banco, double saldo, double chequeEspecial) {
-        super(numero, agencia, banco, saldo);
+    public ContaCorrente(String numero, int agencia, String banco, double saldo, int chequeEspecial) {
+        super(numero, agencia, banco, saldo, chequeEspecial);
+        this.saldo = saldo;
         this.chequeEspecial = chequeEspecial;
     }
-    public double getSaldo(){
-        return this.chequeEspecial + this.saldo;
+
+    public double getSaldo() {
+        return this.saldo;
+    }
+
+    public double getchequeEspecial(){
+        return this.chequeEspecial;
+    }
+
+    public double getChequeEspecial(){
+        return this.chequeEspecial;
     }
 
 
     @Override
-    public double getImposto(){
-        return 150;
+    public double getImposto() {
+        return 0;
     }
-    @Override
-    public String toString() {
-        return "ContaCorrente{" +
-                "chequeEspecial=" + chequeEspecial +
-                '}';
-    }
-
 
 }

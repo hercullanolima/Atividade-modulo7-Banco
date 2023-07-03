@@ -1,17 +1,16 @@
-public abstract class Conta  implements Tributavel{
+
+public abstract class Conta implements Tributavel {
     protected String numero;
     protected int agencia;
     protected String banco;
     protected double saldo;
-
+    protected  int chequeEspecal;
 
     public String getNumero() {
-
         return numero;
     }
 
     public void setNumero(String numero) {
-
         this.numero = numero;
     }
 
@@ -37,26 +36,27 @@ public abstract class Conta  implements Tributavel{
         this.saldo = saldo;
     }
 
-    public Conta(String numero, int agencia, String banco, double saldo) {
+    public int getChequeEspecal() {
+        return chequeEspecal;
+    }
+
+    public void setChequeEspecal(int chequeEspecal) {
+        this.chequeEspecal = chequeEspecal;
+    }
+
+    public void depositar(double valor) {
+        this.saldo += valor;
+    }
+
+    public void sacar(double valor) {
+        this.saldo -= valor;
+    }
+
+    public Conta(String numero, int agencia, String banco, double saldo, int chequeEspecal) {
         this.numero = numero;
         this.agencia = agencia;
         this.banco = banco;
         this.saldo = saldo;
-    }
-
-    @Override
-    public String toString() {
-        return "Conta{" +
-                "numero=" + numero +
-                ", agencia=" + agencia +
-                ", banco='" + banco + '\'' +
-                ", saldo=" + saldo +
-                '}';
-    }
-
-    public void sacar(double valor) {
-    }
-
-    public void depositar(double valor) {
+        this.chequeEspecal = chequeEspecal;
     }
 }

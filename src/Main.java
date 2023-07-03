@@ -24,7 +24,7 @@ public class Main {
     public static void menu(int opcao) throws Exception {
         Scanner scanner = new Scanner(System.in);
         switch(opcao) {
-            case 1:
+            case 1: // CONTA CORRENTE
                 System.out.print("Digite o número da conta: ");
                 String numero = scanner.next();
                 System.out.print("Digite a agência: ");
@@ -34,7 +34,7 @@ public class Main {
                 System.out.print("Indique o saldo inicial da conta: ");
                 double saldo = Double.parseDouble(scanner.next());
                 System.out.print("Indique o valor do cheque especial: ");
-                double chequeEspecial = Double.parseDouble(scanner.next());
+                int chequeEspecial = Integer.parseInt(scanner.next());
 
                 ContaCorrente cc1 = new ContaCorrente(numero, agencia, banco, saldo, chequeEspecial);
                 bank.addNovaConta(cc1);
@@ -44,7 +44,7 @@ public class Main {
 
                 break;
 
-            case 2:
+            case 2: // CONTA POUPANÇA
                 System.out.print("Digite o número da conta: ");
                 numero = scanner.next();
                 System.out.print("Digite a agência: ");
@@ -58,7 +58,8 @@ public class Main {
                 System.out.print("Indique o juros: ");
                 double juros = Double.parseDouble(scanner.next());
 
-                ContaPoupanca cp1 = new ContaPoupanca(numero, agencia, banco, saldo, diaAniversario, juros);
+                ContaPoupanca cp1;
+                cp1 = new ContaPoupanca(numero, agencia, banco, saldo, diaAniversario, juros);
                 bank.addNovaConta(cp1);
 
                 System.out.println(" ");
@@ -66,7 +67,7 @@ public class Main {
 
                 break;
 
-            case 3:
+            case 3: //CONTA SALÁRIO
                 System.out.print("Digite o número da conta: ");
                 numero = scanner.next();
                 System.out.print("Digite a agência: ");
@@ -111,6 +112,7 @@ public class Main {
                     System.out.println("Agência: " + conta.getAgencia());
                     System.out.println("Banco: " + conta.getBanco());
                     System.out.println("Saldo: " + conta.getSaldo());
+                    System.out.println("Cheque Especial: " + conta.getChequeEspecal());
                     System.out.println("Impostos: " + conta.getImposto());
                     System.out.println("------------------------------------");
                 }
