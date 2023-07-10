@@ -6,6 +6,7 @@ public abstract class Conta implements Tributavel {
     protected double saldo;
     protected  int chequeEspecal;
 
+
     public String getNumero() {
         return numero;
     }
